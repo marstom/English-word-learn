@@ -1,0 +1,64 @@
+#:kivy 1.9.0
+
+<Scr1>:
+	Widget:
+		Label:
+			id: label1
+			font_size: 70  
+			center_x: root.width / 2
+			top: textIn.top + 150
+			text: 'To jest screeen 1'
+
+
+		TextInput:
+			id: textIn
+			font_size: 63  
+			center_x: root.width / 2
+			width: 600
+			height:100
+			top: root.top /2
+			text: "empxxxyt pbo"
+			multiline:1
+			focus:1
+			
+		Button:
+			text: 'screen2-->'
+			on_release: app.root.current = 'scr2'
+		
+<Scr2>:   
+	Widget:
+		Label:
+			id: label1
+			font_size: 70  
+			center_x: root.width / 2
+			top: textIn.top + 150
+			text: 'To jest screeen 2'
+			color: 0,1,0,1
+
+		TextInput:
+			id: textIn
+			font_size: 63  
+			center_x: root.width / 2
+			width: 600
+			height:100
+			top: root.top /2
+			text: "empyt pbo"
+			multiline: 0
+			color:1,0,0,1
+		Button:
+			text: 'screen3-->'
+			on_release: app.root.current = 'scr3'
+<Scr3>:
+	BoxLayout:
+		Button:
+			color:1,0,0,1
+			text: 'ToJest3SCREEN'
+			on_press: app.root.current = 'scr1'
+			
+		Label:
+			text:'labelka 3'
+		Slider:
+			range:50,489
+			value: 255
+			value_track_color: 1,1,0,1
+		

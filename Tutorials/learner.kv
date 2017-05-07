@@ -1,0 +1,32 @@
+#:kivy 1.9.0
+
+<Singularity>:    
+
+
+    Label:
+    	id: label1
+        font_size: 70  
+        center_x: root.width / 2
+        top: textIn.top + 150
+        text: root.napis
+
+
+    TextInput:
+        id: textIn
+        font_size: 63  
+        center_x: root.width / 2
+        width: 600
+        height:100
+        top: root.top /2
+        text: "empyt pbo"
+        multiline: 0
+        
+    ProgressBar:
+        id: progressBar
+        font_size: 63  
+        center_x: root.width / 2
+        width: 600
+        height:100
+        top: root.top /2 - 100
+        max: 1000
+        value: root.value

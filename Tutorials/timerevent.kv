@@ -1,0 +1,20 @@
+<Ekran>:
+	GridLayout:
+		cols:2
+		col_default_width:121
+		Label:
+			id: lab1
+			text:'tomek'
+		Label:
+			id: lab2
+			font_size:25
+			text: 'FadingText'
+			color:[1,0,0,0]
+		Button:
+			text:'guzik'
+		Button:
+			text:'guzik1'
+			on_release: root.on_button1(lab1) #passing argument to button
+		Button:
+			text:'guzik2'
+			on_release: root.on_button2(lab2)
