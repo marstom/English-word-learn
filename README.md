@@ -6,6 +6,12 @@ This is application for learning new words and phrases in any forgein language. 
 
 * Quick summary
     * This is program for people who want learn new phrases in forgein languages
+* Features:
+   * Points for good answer, minus point for 3 bad answer, zero points for skip to next question,
+   * Question from user dictionary are selected randomly but without repetitions,
+   * Nice animations, red - bad answer, green - good, yellow - skip,
+   * High score table, you can track your progress,
+   * Dictionaries are .csv file
 
 ### How do I get set up? ###
 * Dependencies
@@ -21,3 +27,6 @@ This is application for learning new words and phrases in any forgein language. 
 
 ### Known bugs/issues ###
 * after hit enter cursor not focus again in text input
+
+### Project wiki ###
+Look project [wiki](https://github.com/marstom/English-word-learn/wiki) page for more info.
