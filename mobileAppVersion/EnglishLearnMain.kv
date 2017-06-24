@@ -1,0 +1,86 @@
+<MainScreen>:
+	RelativeLayout:
+		Label:
+			id: label_texts
+			text: root.answers[0]
+			font_size: 60  
+			pos_hint: {"center_x": .5, "center_y":.7}
+			size_hint: 0.3,.124
+
+
+		TextInput:
+			id: textIn
+			text: ''
+			pos_hint: {"center_x": .5, "center_y":.5}
+			size_hint: 0.6,.124
+			font_size: 42
+			multiline: 0
+			on_text_validate: root.on_validateText(textIn.text)
+		
+		Button:
+			text:'Next'
+			font_size: 25
+			size_hint: 0.1, textIn.size_hint_y
+			#pos_hint: {"center_x": .5, "center_y":.5}
+			pos: textIn.center_x+textIn.width/2 +10, textIn.top - textIn.height
+			color:[0,1,0,1]
+			on_release: root.bNext_click(lHint)
+			
+		ProgressBar:
+			id: progressBar
+			font_size: 63  
+			pos_hint: {"center_x": .5, "center_y":.3}
+			size_hint: 0.7,.124
+			max: 1001
+			value: 0
+			
+		Label:
+			id: lHint
+			text: 'zdanie po polsku tutaj jest wytlumaczone'
+			font_size: 32
+			size_hint: 1,1
+			pos_hint: {"center_x": .5, "center_y":.18}
+			color:[1,1,0,0]
+			
+		Label:
+			id: lPoints
+			text: str(root.points)
+			font_size:37
+			pos_hint: {"center_x": .9, "center_y":.3}
+		
+		Label:
+			id:lQNumber
+			text: 'Question: '+str(root.gameCounter)
+			font_size:37
+			pos_hint: {"center_x": .15, "center_y":.92}
+			color:0,1,0,1
+		
+<SummaryScreen>:
+#This is TODO
+	Label:
+		id: lab1
+		text:"Wyniki:"
+		font_size: 37
+		pos_hint: {"center_x": .15, "center_y":.92}
+	Label:
+		id: lWyniki
+		text:"Dictionary1: 50%\nDictionary2: 75%"
+		font_size:24
+		pos: lab1.x+200, lab1.y-190
+		
+	Button:
+		id: bRestart
+		text: "Restart"
+		pos_hint: {"center_x": .5, "center_y":.1}
+		size_hint:.50,.10
+		on_release:	root.bRestart()
+
+		
+	Button:
+		id: bQuit
+		text: "Quit"
+		pos_hint: {"center_x": .85, "center_y":.1}
+		size_hint:.10,.10
+		on_release: root.bQuit()
+		
+		

@@ -6,3 +6,4 @@ score.csv
 Releases/
 *.spec
 __pycache__/
+bin/

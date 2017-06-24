@@ -5,8 +5,9 @@ Created on 04.03.2017
 '''
 
 # -*- coding: utf-8 -*-
-from dictParser.dictParser import DictParser
-from scoreWriter.scoreWriter import ScoreWriter
+#import dictParser
+from dictParserM.dictParser import DictParser
+from scoreWriterM.scoreWriter import ScoreWriter
 from kivy.animation import Animation
 from kivy.clock import Clock
 
@@ -16,7 +17,7 @@ class GameLogic:
     '''      
     def __init__(self,menu):
         self.menu = menu
-        self.loadDictionary('./dictionaries/dictionary1.csv')
+        self.loadDictionary('./dictionariesM/dictionary1.csv')
         self.menu.answers = self.dictParser.selectOneItemWithoutRepetitions()
         self.menu.lText.text= self.menu.answers[0]
     
@@ -24,10 +25,10 @@ class GameLogic:
         self.dictParser = DictParser(filename)
     
     def _check_ans(self,ans):
+        #ans = ans.decode('utf-8', 'ignore')
         ans = ans.strip()
         ans = ans.lower()
         ans = str(ans)
-        print(ans)
         isFound = self._compareAnswerToCorrectAnswer(self.menu.answers, ans)
         
         if isFound:  
@@ -38,7 +39,7 @@ class GameLogic:
             self.menu.gameCounter -=1  #game counter increments whatever good or bad answer
             self.menu.lPoints.text = str(self.menu.points)
             self.menu.lQNumber.text = 'Question: '+str(self.menu.gameCounter)
-            print('Dobra odpowiedz!: {} pts: {} game: {}'.format(ans , self.menu.points, self.menu.gameCounter))
+#             print('Dobra odpowiedz!: {} pts: {} game: {}'.format(ans , self.menu.points, self.menu.gameCounter))
             self.eval_points(True, True)
             return 'gBack'
         else:
@@ -47,7 +48,7 @@ class GameLogic:
             self.eval_points(False or notEnd, False)
             print(self.menu.answers)
             self.menu.lPoints.text = str(self.menu.points)
-            print('Zla!! odpowiedz!: {} pts: {} game: {}'.format(ans , self.menu.points, self.menu.gameCounter))
+#             print('Zla!! odpowiedz!: {} pts: {} game: {}'.format(ans , self.menu.points, self.menu.gameCounter))
             if notEnd:
                 return 'yBack'
             else:
@@ -103,14 +104,14 @@ class GameLogic:
     def _displayEndOfGameScreen(self):
         print('END OF GAME')
         #save stats to file 
-        writeScore = ScoreWriter('./score.csv')
+        writeScore = ScoreWriter('score.csv')
         writeScore.write(self.menu.points, 10, 'dictionary1')
         #next screeen  
         self.menu.manager.current = 'Summary'
         #get from file and display on the screen
         lista = writeScore.read_10pos()
         str_ = writeScore.format_table(lista)
-        #display screen - summary
+        # display screen - summary
         summ = self.menu.manager.get_screen('Summary')
         summ.lWyniki.text = str_
                
